@@ -15,7 +15,7 @@ public class DownloadButtonActivity extends AppCompatActivity {
     private DownloadButton downloadButton;
     private Button btnReset;
 
-    private CountDownTimer timer = new CountDownTimer(5000, 500) {
+    private CountDownTimer timer = new CountDownTimer(50000, 500) {
         @Override
         public void onTick(long millisUntilFinished) {
             //virtual progress

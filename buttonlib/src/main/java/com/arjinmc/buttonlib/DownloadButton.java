@@ -10,11 +10,14 @@ import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.RectF;
+import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
 import android.support.annotation.Nullable;
 import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
+import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
@@ -46,12 +49,14 @@ public class DownloadButton extends View {
     private RectF mOvalRect;
     private int mWidth, mHeight;
 
+    private ClipDrawable mProgessDrawable;
     private Path mLeftPath;
     private Path mRightPath;
     private PathMeasure mRightPathMeasure;
     private PathMeasure mLeftPathMeasure;
     private float mAnimationValue;
     private ValueAnimator mAnim;
+
 
     private int mStatus = STATUS_NORMAL;
     private boolean mCanClick = true;
@@ -168,11 +173,25 @@ public class DownloadButton extends View {
                 canvas.drawText(getContext().getString(R.string.download), mWidth / 2, mTxtHeight, mTxtPaint);
                 break;
             case STATUS_PROGRESS:
+
+                //draw background
                 mBgPaint.setColor(mBgColor);
                 canvas.drawRoundRect(mOvalRect, mRadius, mRadius, mBgPaint);
-                mBgPaint.setColor(mProgressColor);
-                RectF progressRectF = new RectF(0, 0, (int)(mWidth /100f * mProgress), mHeight);
-                canvas.drawRoundRect(progressRectF, mRadius, mRadius, mBgPaint);
+
+                //draw progress
+                if(mProgessDrawable==null){
+                    GradientDrawable progressGradientDrawable = new GradientDrawable();
+                    progressGradientDrawable.setBounds(0, 0, mWidth, mHeight);
+                    progressGradientDrawable.setColor(mProgressColor);
+                    progressGradientDrawable.setCornerRadius(mRadius);
+                    mProgessDrawable = new ClipDrawable(
+                            progressGradientDrawable, Gravity.LEFT,ClipDrawable.HORIZONTAL);
+                    mProgessDrawable.setBounds(0, 0, mWidth, mHeight);
+                }
+                mProgessDrawable.setLevel(mProgress*100);
+                mProgessDrawable.draw(canvas);
+
+                //draw text
                 mTxtPaint.setTextSize(mTxtSize);
                 canvas.drawText(getContext().getString(R.string.download), mWidth / 2, mTxtHeight, mTxtPaint);
                 break;
