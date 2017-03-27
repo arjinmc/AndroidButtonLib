@@ -198,10 +198,6 @@ public class DownloadButton extends View {
         float leftStop = mLeftPathMeasure.getLength() * mAnimationValue;
         mLeftPathMeasure.getSegment(0, leftStop, leftDst, true);
         canvas.drawPath(leftDst, mTickPaint);
-        //some devices do not support pathmeasure
-        if(mIsDone){
-            canvas.drawPath(mLeftPath, mTickPaint);
-        }
 
 
         //draw right
@@ -213,8 +209,11 @@ public class DownloadButton extends View {
         float rightStop = mRightPathMeasure.getLength() * mAnimationValue;
         mRightPathMeasure.getSegment(0, rightStop, rightDst, true);
         canvas.drawPath(rightDst, mTickPaint);
+
+
         //some devices do not support pathmeasure
         if(mIsDone) {
+            canvas.drawPath(mLeftPath, mTickPaint);
             canvas.drawPath(mRightPath, mTickPaint);
         }
 
