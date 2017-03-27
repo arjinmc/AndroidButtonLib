@@ -1,5 +1,5 @@
 # AndroidButtonLib
-Some kinds of android custom button
+Some kinds of android custom buttons.
 
 ## SlideButton  
 description: slide to the edge of right,if you don't do this,it will slide back to left.  
