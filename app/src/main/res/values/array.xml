@@ -4,6 +4,7 @@
         <item>[ About Me ]</item>
         <item>SildeButton</item>
         <item>DownloadButton</item>
+        <item>SubmitButton</item>
 
     </string-array>
 </resources>

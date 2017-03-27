@@ -7,22 +7,10 @@
     android:orientation="vertical"
     android:padding="16dp">
 
-    <com.arjinmc.buttonlib.DownloadButton
+    <com.arjinmc.buttonlib.SubmitButton
         android:id="@+id/btn_download"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        app:backgroundColor="#0277bd"
-        app:progressColor="#619ade"
-        app:textColor="#ffffff"
-        app:radius="30"
-        app:textSize="16sp" />
-
-    <Button
-        android:id="@+id/btn_reset"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="reset" />
-
+        />
 
 </LinearLayout>

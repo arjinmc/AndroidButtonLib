@@ -60,7 +60,7 @@ public class DownloadButton extends View {
 
     private int mStatus = STATUS_NORMAL;
     private boolean mCanClick = true;
-    private boolean mIsDone = false;
+    private boolean mIsDone;
     private int mProgress;
     private float mTxtHeight;
 
@@ -147,7 +147,8 @@ public class DownloadButton extends View {
             mWidth = getMeasuredWidth();
             mHeight = getMeasuredHeight();
             //set size for tick
-            mTickPaint.setStrokeWidth((mHeight > mWidth ? mWidth : mHeight) / 20);
+            int minThick = (mHeight > mWidth ? mWidth : mHeight) / 20;
+            mTickPaint.setStrokeWidth(minThick > 0 ? minThick : 1);
         }
 
         if (mTxtHeight == 0) {
@@ -179,16 +180,16 @@ public class DownloadButton extends View {
                 canvas.drawRoundRect(mOvalRect, mRadius, mRadius, mBgPaint);
 
                 //draw progress
-                if(mProgessDrawable==null){
+                if (mProgessDrawable == null) {
                     GradientDrawable progressGradientDrawable = new GradientDrawable();
                     progressGradientDrawable.setBounds(0, 0, mWidth, mHeight);
                     progressGradientDrawable.setColor(mProgressColor);
                     progressGradientDrawable.setCornerRadius(mRadius);
                     mProgessDrawable = new ClipDrawable(
-                            progressGradientDrawable, Gravity.LEFT,ClipDrawable.HORIZONTAL);
+                            progressGradientDrawable, Gravity.LEFT, ClipDrawable.HORIZONTAL);
                     mProgessDrawable.setBounds(0, 0, mWidth, mHeight);
                 }
-                mProgessDrawable.setLevel(mProgress*100);
+                mProgessDrawable.setLevel(mProgress * 100);
                 mProgessDrawable.draw(canvas);
 
                 //draw text
@@ -231,7 +232,7 @@ public class DownloadButton extends View {
 
 
         //some devices do not support pathmeasure
-        if(mIsDone) {
+        if (mIsDone) {
             canvas.drawPath(mLeftPath, mTickPaint);
             canvas.drawPath(mRightPath, mTickPaint);
         }
@@ -320,7 +321,7 @@ public class DownloadButton extends View {
         }
     }
 
-    public int getProgress(){
+    public int getProgress() {
         return mProgress;
     }
 
