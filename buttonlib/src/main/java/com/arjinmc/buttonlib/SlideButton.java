@@ -292,8 +292,8 @@ public class SlideButton extends RelativeLayout {
         return mSlideStatus;
     }
 
-    public void setmOnSlideListender(OnSlideListender mOnSlideListender) {
-        this.mOnSlideListender = mOnSlideListender;
+    public void setOnSlideListender(OnSlideListender onSlideListender) {
+        this.mOnSlideListender = onSlideListender;
     }
 
     //callback for check status

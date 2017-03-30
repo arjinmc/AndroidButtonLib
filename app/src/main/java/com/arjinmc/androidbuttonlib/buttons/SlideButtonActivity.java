@@ -17,7 +17,7 @@ public class SlideButtonActivity extends AppCompatActivity {
         setContentView(R.layout.activity_slidebutton);
 
         slideButton = (SlideButton) findViewById(R.id.slideButton);
-        slideButton.setmOnSlideListender(new SlideButton.OnSlideListender() {
+        slideButton.setOnSlideListender(new SlideButton.OnSlideListender() {
             @Override
             public void onStatusChange(boolean status) {
                 Log.e("check", String.valueOf(status));
