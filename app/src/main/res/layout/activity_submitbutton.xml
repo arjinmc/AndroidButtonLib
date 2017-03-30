@@ -8,9 +8,19 @@
     android:padding="16dp">
 
     <com.arjinmc.buttonlib.SubmitButton
-        android:id="@+id/btn_download"
+        android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="effective force error only at progress status "/>
+
+    <Button
+        android:id="@+id/btn_force_error"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="force error"/>
 
 </LinearLayout>
