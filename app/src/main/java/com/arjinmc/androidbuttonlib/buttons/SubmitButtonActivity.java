@@ -19,11 +19,11 @@ public class SubmitButtonActivity extends AppCompatActivity {
 
     private SubmitButton submitButton;
     private Button btnForceError;
-    private CountDownTimer countDownTimer = new CountDownTimer(6000,500) {
+    private CountDownTimer countDownTimer = new CountDownTimer(6000, 500) {
         @Override
         public void onTick(long millisUntilFinished) {
 
-            submitButton.setProgress((int)((6000-millisUntilFinished)/500)*10);
+            submitButton.setProgress((int) ((6000 - millisUntilFinished) / 500) * 10);
         }
 
         @Override

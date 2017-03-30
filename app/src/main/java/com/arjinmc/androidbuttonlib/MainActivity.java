@@ -29,23 +29,23 @@ public class MainActivity extends AppCompatActivity {
         titles = getResources().getStringArray(R.array.titles);
 
         recyclerView = (RecyclerView) findViewById(R.id.rv);
-        myAdapter =  new MyAdapter();
+        myAdapter = new MyAdapter();
         recyclerView.setAdapter(myAdapter);
         recyclerView.addItemDecoration(new RecyclerViewItemDecoration(
-                RecyclerViewItemDecoration.MODE_HORIZONTAL, Color.BLACK,2,0,0));
+                RecyclerViewItemDecoration.MODE_HORIZONTAL, Color.BLACK, 2, 0, 0));
         recyclerView.setLayoutManager(
-                new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false));
+                new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
     }
 
 
-    private class MyAdapter extends RecyclerView.Adapter<MyViewHolder>{
+    private class MyAdapter extends RecyclerView.Adapter<MyViewHolder> {
 
         @Override
         public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
 
             return new MyViewHolder(
                     LayoutInflater.from(MainActivity.this)
-                            .inflate(R.layout.item_list,parent,false));
+                            .inflate(R.layout.item_list, parent, false));
         }
 
         @Override
@@ -62,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    private class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
+    private class MyViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView tv;
 
@@ -73,11 +73,10 @@ public class MainActivity extends AppCompatActivity {
         }
 
 
-
         @Override
         public void onClick(View v) {
 
-            switch (getLayoutPosition()){
+            switch (getLayoutPosition()) {
                 case 0:
                     jumpActivity(AboutActivity.class);
                     break;
@@ -97,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void jumpActivity(Class clazz){
-        startActivity(new Intent(this,clazz));
+    private void jumpActivity(Class clazz) {
+        startActivity(new Intent(this, clazz));
     }
 }

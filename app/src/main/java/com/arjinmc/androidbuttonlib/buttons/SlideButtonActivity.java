@@ -20,7 +20,7 @@ public class SlideButtonActivity extends AppCompatActivity {
         slideButton.setmOnSlideListender(new SlideButton.OnSlideListender() {
             @Override
             public void onStatusChange(boolean status) {
-                Log.e("check",String.valueOf(status));
+                Log.e("check", String.valueOf(status));
             }
         });
     }

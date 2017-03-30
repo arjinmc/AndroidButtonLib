@@ -13,8 +13,8 @@
         android:layout_height="48dp"
         app:DownloadButton.backgroundColor="#0277bd"
         app:DownloadButton.progressColor="#619ade"
-        app:DownloadButton.textColor="#ffffff"
         app:DownloadButton.radius="30"
+        app:DownloadButton.textColor="#ffffff"
         app:DownloadButton.textSize="16sp" />
 
     <Button

@@ -57,8 +57,8 @@ public class SlideButton extends RelativeLayout {
 
     //property
     private int mTipsColor = Color.WHITE;
-    private float mTipsTextSize =-1;
-    private int mSlideButtonDrawableID =-1;
+    private float mTipsTextSize = -1;
+    private int mSlideButtonDrawableID = -1;
     private int mBackgroudColor;
 
     public SlideButton(Context context) {
@@ -84,34 +84,34 @@ public class SlideButton extends RelativeLayout {
 
     private void init(AttributeSet attrs) {
 
-        if(attrs!=null){
+        if (attrs != null) {
 
             TypedArray lAttrs = getContext().obtainStyledAttributes(
-                    attrs,R.styleable.SlideButton);
-            mTipsColor = lAttrs.getColor(R.styleable.SlideButton_SlideButton_tipsColor,Color.WHITE);
-            mTipsTextSize = lAttrs.getDimension(R.styleable.SlideButton_SlideButton_tipsTextSize,-1);
+                    attrs, R.styleable.SlideButton);
+            mTipsColor = lAttrs.getColor(R.styleable.SlideButton_SlideButton_tipsColor, Color.WHITE);
+            mTipsTextSize = lAttrs.getDimension(R.styleable.SlideButton_SlideButton_tipsTextSize, -1);
             mSlideButtonDrawableID = lAttrs.getResourceId(
-                    R.styleable.SlideButton_SlideButton_button,R.drawable.btn_silver_slide);
+                    R.styleable.SlideButton_SlideButton_button, R.drawable.btn_silver_slide);
         }
 
         //slide mButton
         mButton = new Button(getContext());
         mButton.setLayoutParams(new LayoutParams(
                 ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT));
-        if(mSlideButtonDrawableID !=0){
+        if (mSlideButtonDrawableID != 0) {
             mButton.setBackgroundResource(mSlideButtonDrawableID);
-        }else{
+        } else {
             mButton.setBackgroundResource(R.drawable.btn_silver_slide);
         }
 
         addView(mButton);
-        measure(0,0);
+        measure(0, 0);
 
 
         //get background color
         try {
-            mBackgroudColor = ((ColorDrawable)getBackground()).getColor();
-        }catch (Exception e){
+            mBackgroudColor = ((ColorDrawable) getBackground()).getColor();
+        } catch (Exception e) {
             mBackgroudColor = DEFAULT_BACKGROUND_COLOR;
             e.printStackTrace();
         }
@@ -142,17 +142,17 @@ public class SlideButton extends RelativeLayout {
                     case MotionEvent.ACTION_MOVE:
                         mMoveX = event.getX();
                         float alterMove = mMoveX - mDownX;
-                        mTotoalMove +=alterMove;
-                        if(mTotoalMove <=0){
+                        mTotoalMove += alterMove;
+                        if (mTotoalMove <= 0) {
                             mTotoalMove = 0;
-                        }else if(mTotoalMove >=getWidth()- mButton.getWidth()){
-                            mTotoalMove =getWidth()- mButton.getWidth();
+                        } else if (mTotoalMove >= getWidth() - mButton.getWidth()) {
+                            mTotoalMove = getWidth() - mButton.getWidth();
                         }
                         mButton.setTranslationX(mTotoalMove);
                         break;
                     case MotionEvent.ACTION_UP:
 
-                        if(mTotoalMove <getWidth()- mButton.getWidth()){
+                        if (mTotoalMove < getWidth() - mButton.getWidth()) {
                             startSlideAnimation();
                         }
                         break;
@@ -163,9 +163,9 @@ public class SlideButton extends RelativeLayout {
         });
     }
 
-    private void startSlideAnimation(){
+    private void startSlideAnimation() {
 
-        if(mRewindAnimation ==null) {
+        if (mRewindAnimation == null) {
             mRewindAnimation = ObjectAnimator.ofFloat(mButton, "translationX"
                     , 0);
             mRewindAnimation.addListener(new Animator.AnimatorListener() {
@@ -193,7 +193,7 @@ public class SlideButton extends RelativeLayout {
                 public void onAnimationUpdate(ValueAnimator animation) {
 
                     float value = (Float) animation.getAnimatedValue();
-                    mTotoalMove -= mTotoalMove +value;
+                    mTotoalMove -= mTotoalMove + value;
                     updateTips();
 
                 }
@@ -207,16 +207,16 @@ public class SlideButton extends RelativeLayout {
 
 
     //update tips view
-    private void updateTips(){
-        if(mTotoalMove ==0) {
+    private void updateTips() {
+        if (mTotoalMove == 0) {
             startLightAnimation();
-            if(mOnSlideListender !=null && mSlideStatus){
+            if (mOnSlideListender != null && mSlideStatus) {
                 mSlideStatus = false;
                 mOnSlideListender.onStatusChange(mSlideStatus);
             }
-        }else if(mTotoalMove ==getWidth()- mButton.getWidth()){
-             stopLightAnimation();
-            if(mOnSlideListender !=null && !mSlideStatus){
+        } else if (mTotoalMove == getWidth() - mButton.getWidth()) {
+            stopLightAnimation();
+            if (mOnSlideListender != null && !mSlideStatus) {
                 mSlideStatus = true;
                 mOnSlideListender.onStatusChange(mSlideStatus);
             }
@@ -232,39 +232,39 @@ public class SlideButton extends RelativeLayout {
     @Override
     protected void onDraw(Canvas canvas) {
 
-        if(mShader !=null) {
-            canvas.drawRect(0,0,getMeasuredWidth(),getHeight(), mLightPaint);
+        if (mShader != null) {
+            canvas.drawRect(0, 0, getMeasuredWidth(), getHeight(), mLightPaint);
             mLightPaint.setShader(mShader);
         }
 
         //count the pointY of vertial center
-        if(mTextHeight ==0) {
+        if (mTextHeight == 0) {
             Paint.FontMetrics fontMetrics = mTxtPaint.getFontMetrics();
             float fontHeight = fontMetrics.bottom - fontMetrics.top;
-            mTextHeight = getMeasuredHeight() - (getMeasuredHeight() - fontHeight)/2 - fontMetrics.bottom;
+            mTextHeight = getMeasuredHeight() - (getMeasuredHeight() - fontHeight) / 2 - fontMetrics.bottom;
         }
 
         canvas.drawText(getContext().getString(R.string.slidebutton_tips)
-                ,getMeasuredWidth()/2, mTextHeight, mTxtPaint);
+                , getMeasuredWidth() / 2, mTextHeight, mTxtPaint);
 
         super.onDraw(canvas);
 
     }
 
-    private void startLightAnimation(){
+    private void startLightAnimation() {
 
-        if(mLightAnimation ==null) {
+        if (mLightAnimation == null) {
 
-            mLightAnimation = ObjectAnimator.ofFloat(10,getMeasuredWidth());
+            mLightAnimation = ObjectAnimator.ofFloat(10, getMeasuredWidth());
             mLightAnimation.setRepeatCount(ValueAnimator.INFINITE);
             mLightAnimation.setDuration(3000);
             mLightAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
                 @Override
                 public void onAnimationUpdate(ValueAnimator animation) {
-                    float lightMove = (float)animation.getAnimatedValue();
-                    if(Math.abs(lightMove)<getMeasuredWidth()){
-                        mShader = new RadialGradient(lightMove,getMeasuredHeight()/2,90f
-                                ,new int[] {Color.WHITE, mBackgroudColor},null, Shader.TileMode.CLAMP);
+                    float lightMove = (float) animation.getAnimatedValue();
+                    if (Math.abs(lightMove) < getMeasuredWidth()) {
+                        mShader = new RadialGradient(lightMove, getMeasuredHeight() / 2, 90f
+                                , new int[]{Color.WHITE, mBackgroudColor}, null, Shader.TileMode.CLAMP);
                         postInvalidate();
                     }
 
@@ -272,14 +272,14 @@ public class SlideButton extends RelativeLayout {
             });
         }
 
-        if(mLightAnimation !=null && !mLightAnimation.isRunning()){
+        if (mLightAnimation != null && !mLightAnimation.isRunning()) {
             mLightAnimation.start();
         }
 
     }
 
-    private void stopLightAnimation(){
-        if(mLightAnimation !=null && mLightAnimation.isRunning()){
+    private void stopLightAnimation() {
+        if (mLightAnimation != null && mLightAnimation.isRunning()) {
 
             mLightAnimation.cancel();
             mShader = null;
@@ -288,16 +288,16 @@ public class SlideButton extends RelativeLayout {
         }
     }
 
-    public boolean getStatus(){
+    public boolean getStatus() {
         return mSlideStatus;
     }
 
-    public void setmOnSlideListender(OnSlideListender mOnSlideListender){
+    public void setmOnSlideListender(OnSlideListender mOnSlideListender) {
         this.mOnSlideListender = mOnSlideListender;
     }
 
     //callback for check status
-    public interface OnSlideListender{
+    public interface OnSlideListender {
         public void onStatusChange(boolean status);
     }
 

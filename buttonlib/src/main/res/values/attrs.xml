@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SlideButton">
-        <attr name="SlideButton.tipsColor" format="color"/>
-        <attr name="SlideButton.tipsTextSize" format="dimension"/>
-        <attr name="SlideButton.button" format="reference"/>
+        <attr name="SlideButton.tipsColor" format="color" />
+        <attr name="SlideButton.tipsTextSize" format="dimension" />
+        <attr name="SlideButton.button" format="reference" />
     </declare-styleable>
 
     <declare-styleable name="DownloadButton">
-        <attr name="DownloadButton.textSize" format="dimension"/>
-        <attr name="DownloadButton.textColor" format="color"/>
-        <attr name="DownloadButton.progressColor" format="color"/>
-        <attr name="DownloadButton.radius" format="integer"/>
-        <attr name="DownloadButton.backgroundColor" format="color"/>
+        <attr name="DownloadButton.textSize" format="dimension" />
+        <attr name="DownloadButton.textColor" format="color" />
+        <attr name="DownloadButton.progressColor" format="color" />
+        <attr name="DownloadButton.radius" format="integer" />
+        <attr name="DownloadButton.backgroundColor" format="color" />
     </declare-styleable>
 
     <declare-styleable name="SubmitButton">
-        <attr name="SubmitButton.themeColor" format="color"/>
-        <attr name="SubmitButton.borderColor" format="color"/>
-        <attr name="SubmitButton.errorColor" format="color"/>
-        <attr name="SubmitButton.textSize" format="dimension"/>
-        <attr name="SubmitButton.radius" format="integer"/>
-        <attr name="SubmitButton.thickness" format="dimension"/>
+        <attr name="SubmitButton.themeColor" format="color" />
+        <attr name="SubmitButton.borderColor" format="color" />
+        <attr name="SubmitButton.errorColor" format="color" />
+        <attr name="SubmitButton.textSize" format="dimension" />
+        <attr name="SubmitButton.radius" format="integer" />
+        <attr name="SubmitButton.thickness" format="dimension" />
     </declare-styleable>
 </resources>

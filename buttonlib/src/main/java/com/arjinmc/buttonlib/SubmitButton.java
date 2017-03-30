@@ -108,14 +108,14 @@ public class SubmitButton extends View {
 
     private void init(AttributeSet attrs) {
 
-        if(attrs!=null){
-            TypedArray typedArray = getContext().obtainStyledAttributes(attrs,R.styleable.SubmitButton);
-            mThemeColor = typedArray.getColor(R.styleable.SubmitButton_SubmitButton_themeColor,mThemeColor);
-            mBorderColor =  typedArray.getColor(R.styleable.SubmitButton_SubmitButton_borderColor,mBorderColor);
-            mErrorColor = typedArray.getColor(R.styleable.SubmitButton_SubmitButton_errorColor,mErrorColor);
-            mTxtSize = typedArray.getDimension(R.styleable.SubmitButton_SubmitButton_textSize,mTxtSize);
-            mRadius = typedArray.getInt(R.styleable.SubmitButton_SubmitButton_radius,(int)mRadius);
-            mThick = typedArray.getDimension(R.styleable.SubmitButton_SubmitButton_thickness,mThick);
+        if (attrs != null) {
+            TypedArray typedArray = getContext().obtainStyledAttributes(attrs, R.styleable.SubmitButton);
+            mThemeColor = typedArray.getColor(R.styleable.SubmitButton_SubmitButton_themeColor, mThemeColor);
+            mBorderColor = typedArray.getColor(R.styleable.SubmitButton_SubmitButton_borderColor, mBorderColor);
+            mErrorColor = typedArray.getColor(R.styleable.SubmitButton_SubmitButton_errorColor, mErrorColor);
+            mTxtSize = typedArray.getDimension(R.styleable.SubmitButton_SubmitButton_textSize, mTxtSize);
+            mRadius = typedArray.getInt(R.styleable.SubmitButton_SubmitButton_radius, (int) mRadius);
+            mThick = typedArray.getDimension(R.styleable.SubmitButton_SubmitButton_thickness, mThick);
         }
 
         mBackgroundDrawable = new GradientDrawable();
@@ -330,7 +330,7 @@ public class SubmitButton extends View {
         if (mLastSignalStatus == STATUS_DONE) {
             //draw tick
             //draw left
-            if(mLeftPath ==null) {
+            if (mLeftPath == null) {
                 mLeftPath = new Path();
                 mLeftPath.moveTo(mWidth / 2, mHeight * 3 / 4);
                 mLeftPath.lineTo(mWidth / 2 - mHeight / 4
@@ -339,7 +339,7 @@ public class SubmitButton extends View {
             canvas.drawPath(mLeftPath, mSignalPaint);
 
             //draw right
-            if(mRightPath==null) {
+            if (mRightPath == null) {
                 mRightPath = new Path();
                 mRightPath.moveTo(mWidth / 2, mHeight * 3 / 4);
                 mRightPath.lineTo(mWidth / 2 + mHeight / 4
@@ -347,7 +347,7 @@ public class SubmitButton extends View {
             }
             canvas.drawPath(mRightPath, mSignalPaint);
 
-        }else{
+        } else {
             //draw cross
             //draw left
             if (mLeftPath == null) {
