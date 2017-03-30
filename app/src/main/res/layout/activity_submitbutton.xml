@@ -11,7 +11,14 @@
         android:id="@+id/btn_submit"
         android:layout_width="match_parent"
         android:layout_height="48dp"
+        app:SubmitButton.themeColor="#1ecd97"
+        app:SubmitButton.borderColor="#bababa"
+        app:SubmitButton.errorColor="#d5767c"
+        app:SubmitButton.textSize="18sp"
+        app:SubmitButton.thickness="2dp"
+        app:SubmitButton.radius="50"
         />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

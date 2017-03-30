@@ -13,4 +13,13 @@
         <attr name="radius" format="integer"/>
         <attr name="backgroundColor" format="color"/>
     </declare-styleable>
+
+    <declare-styleable name="SubmitButton">
+        <attr name="SubmitButton.themeColor" format="color"/>
+        <attr name="SubmitButton.borderColor" format="color"/>
+        <attr name="SubmitButton.errorColor" format="color"/>
+        <attr name="SubmitButton.textSize" format="dimension"/>
+        <attr name="SubmitButton.radius" format="integer"/>
+        <attr name="SubmitButton.thickness" format="dimension"/>
+    </declare-styleable>
 </resources>

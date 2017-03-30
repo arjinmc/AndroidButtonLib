@@ -4,6 +4,7 @@ import android.animation.Animator;
 import android.animation.ArgbEvaluator;
 import android.animation.ValueAnimator;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -48,7 +49,7 @@ public class SubmitButton extends View {
     private boolean mCanClick = true;
     private boolean mIsSignal;
     private int mProgress = 0;
-    private int mTxtSize = 30;
+    private float mTxtSize = 30;
     private float mRadius = DEFAULT_RADIUS;
     private float mThick = DEFAULT_THICK;
     private int mThemeColor = Color.parseColor(DEFAULT_THEME_COLOR);
@@ -107,6 +108,16 @@ public class SubmitButton extends View {
 
     private void init(AttributeSet attrs) {
 
+        if(attrs!=null){
+            TypedArray typedArray = getContext().obtainStyledAttributes(attrs,R.styleable.SubmitButton);
+            mThemeColor = typedArray.getColor(R.styleable.SubmitButton_SubmitButton_themeColor,mThemeColor);
+            mBorderColor =  typedArray.getColor(R.styleable.SubmitButton_SubmitButton_borderColor,mBorderColor);
+            mErrorColor = typedArray.getColor(R.styleable.SubmitButton_SubmitButton_errorColor,mErrorColor);
+            mTxtSize = typedArray.getDimension(R.styleable.SubmitButton_SubmitButton_textSize,mTxtSize);
+            mRadius = typedArray.getInt(R.styleable.SubmitButton_SubmitButton_radius,(int)mRadius);
+            mThick = typedArray.getDimension(R.styleable.SubmitButton_SubmitButton_thickness,mThick);
+        }
+
         mBackgroundDrawable = new GradientDrawable();
 
         mTxtPaint = new Paint();
@@ -154,6 +165,7 @@ public class SubmitButton extends View {
 
             case STATUS_NORMAL:
 
+                mBackgroundDrawable.setShape(GradientDrawable.RECTANGLE);
                 mBackgroundDrawable.setCornerRadius(mRadius);
                 mBackgroundDrawable.setBounds(0, 0, mWidth, mHeight);
                 mBackgroundDrawable.setColor(mBackgroundColor);
@@ -190,7 +202,9 @@ public class SubmitButton extends View {
 
             case STATUS_PROGRESS:
 
+                mBackgroundDrawable.setShape(GradientDrawable.OVAL);
                 mBackgroundDrawable.draw(canvas);
+
 
                 if (mProgressRectf == null) {
                     int midThick = Math.round(mThick / 2);
@@ -298,6 +312,7 @@ public class SubmitButton extends View {
         if (isError) dstColor = mErrorColor;
         int changeXDone = (int) (mChangeTotalWidth - mChangeTotalWidth
                 * ((float) (dstColor - mBackgroundColorAnimationValue) / dstColor));
+        mBackgroundDrawable.setShape(GradientDrawable.RECTANGLE);
         mBackgroundDrawable.setBounds(mChangeTotalWidth - changeXDone, 0
                 , mWidth - mChangeTotalWidth + changeXDone, mHeight);
         mBackgroundDrawable.setColor(mBackgroundColorAnimationValue);
