@@ -11,9 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        app:button="@drawable/btn_silver_slide"
-        app:tipsColor="#ff0"
-        app:tipsTextSize="16sp"
+        app:SlideButton.button="@drawable/btn_silver_slide"
+        app:SlideButton.tipsColor="#ff0"
+        app:SlideButton.tipsTextSize="16sp"
         />
 
 </RelativeLayout>

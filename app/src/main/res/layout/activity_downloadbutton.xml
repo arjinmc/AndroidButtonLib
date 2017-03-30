@@ -11,11 +11,11 @@
         android:id="@+id/btn_download"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        app:backgroundColor="#0277bd"
-        app:progressColor="#619ade"
-        app:textColor="#ffffff"
-        app:radius="30"
-        app:textSize="16sp" />
+        app:DownloadButton.backgroundColor="#0277bd"
+        app:DownloadButton.progressColor="#619ade"
+        app:DownloadButton.textColor="#ffffff"
+        app:DownloadButton.radius="30"
+        app:DownloadButton.textSize="16sp" />
 
     <Button
         android:id="@+id/btn_reset"

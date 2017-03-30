@@ -88,10 +88,10 @@ public class SlideButton extends RelativeLayout {
 
             TypedArray lAttrs = getContext().obtainStyledAttributes(
                     attrs,R.styleable.SlideButton);
-            mTipsColor = lAttrs.getColor(R.styleable.SlideButton_tipsColor,Color.WHITE);
-            mTipsTextSize = lAttrs.getDimension(R.styleable.SlideButton_tipsTextSize,-1);
+            mTipsColor = lAttrs.getColor(R.styleable.SlideButton_SlideButton_tipsColor,Color.WHITE);
+            mTipsTextSize = lAttrs.getDimension(R.styleable.SlideButton_SlideButton_tipsTextSize,-1);
             mSlideButtonDrawableID = lAttrs.getResourceId(
-                    R.styleable.SlideButton_button,R.drawable.btn_silver_slide);
+                    R.styleable.SlideButton_SlideButton_button,R.drawable.btn_silver_slide);
         }
 
         //slide mButton

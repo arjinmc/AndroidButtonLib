@@ -99,14 +99,14 @@ public class DownloadButton extends View {
 
             TypedArray typedArray = getContext().obtainStyledAttributes(attrs
                     , R.styleable.DownloadButton);
-            mTxtSize = typedArray.getDimension(R.styleable.DownloadButton_textSize
+            mTxtSize = typedArray.getDimension(R.styleable.DownloadButton_DownloadButton_textSize
                     , DEFAULT_TEXT_SIZE);
-            mTxtColor = typedArray.getColor(R.styleable.DownloadButton_textColor
+            mTxtColor = typedArray.getColor(R.styleable.DownloadButton_DownloadButton_textColor
                     , DEFAULT_TEXT_COLOR);
-            mProgressColor = typedArray.getColor(R.styleable.DownloadButton_progressColor
+            mProgressColor = typedArray.getColor(R.styleable.DownloadButton_DownloadButton_progressColor
                     , Color.parseColor(DEFAULT_PROGRESS_COLOR));
-            mRadius = typedArray.getInteger(R.styleable.DownloadButton_radius, DEFAULT_RADIUS);
-            mBgColor = typedArray.getColor(R.styleable.DownloadButton_backgroundColor
+            mRadius = typedArray.getInteger(R.styleable.DownloadButton_DownloadButton_radius, DEFAULT_RADIUS);
+            mBgColor = typedArray.getColor(R.styleable.DownloadButton_DownloadButton_backgroundColor
                     , Color.parseColor(DEFAULT_BACKGROUND_COLOR));
         }
 

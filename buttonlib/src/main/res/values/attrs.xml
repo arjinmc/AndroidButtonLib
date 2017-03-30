@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <declare-styleable name="SlideButton">
-        <attr name="tipsColor" format="color"/>
-        <attr name="tipsTextSize" format="dimension"/>
-        <attr name="button" format="reference"/>
+        <attr name="SlideButton.tipsColor" format="color"/>
+        <attr name="SlideButton.tipsTextSize" format="dimension"/>
+        <attr name="SlideButton.button" format="reference"/>
     </declare-styleable>
 
     <declare-styleable name="DownloadButton">
-        <attr name="textSize" format="dimension"/>
-        <attr name="textColor" format="color"/>
-        <attr name="progressColor" format="color"/>
-        <attr name="radius" format="integer"/>
-        <attr name="backgroundColor" format="color"/>
+        <attr name="DownloadButton.textSize" format="dimension"/>
+        <attr name="DownloadButton.textColor" format="color"/>
+        <attr name="DownloadButton.progressColor" format="color"/>
+        <attr name="DownloadButton.radius" format="integer"/>
+        <attr name="DownloadButton.backgroundColor" format="color"/>
     </declare-styleable>
 
     <declare-styleable name="SubmitButton">
