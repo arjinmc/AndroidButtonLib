@@ -5,6 +5,7 @@
         <item>SildeButton</item>
         <item>DownloadButton</item>
         <item>SubmitButton</item>
+        <item>UploadButton</item>
 
     </string-array>
 </resources>

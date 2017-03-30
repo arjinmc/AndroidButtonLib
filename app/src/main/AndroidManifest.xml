@@ -19,6 +19,7 @@
         <activity android:name=".buttons.SlideButtonActivity"/>
         <activity android:name=".buttons.DownloadButtonActivity"/>
         <activity android:name=".buttons.SubmitButtonActivity"/>
+        <activity android:name=".buttons.UploadButtonActivity"/>
         <activity android:name=".AboutActivity"/>
     </application>
 

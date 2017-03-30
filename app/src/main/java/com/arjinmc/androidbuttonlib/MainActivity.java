@@ -14,6 +14,7 @@ import android.widget.TextView;
 import com.arjinmc.androidbuttonlib.buttons.DownloadButtonActivity;
 import com.arjinmc.androidbuttonlib.buttons.SlideButtonActivity;
 import com.arjinmc.androidbuttonlib.buttons.SubmitButtonActivity;
+import com.arjinmc.androidbuttonlib.buttons.UploadButtonActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -88,6 +89,9 @@ public class MainActivity extends AppCompatActivity {
                     break;
                 case 3:
                     jumpActivity(SubmitButtonActivity.class);
+                    break;
+                case 4:
+                    jumpActivity(UploadButtonActivity.class);
                     break;
                 default:
                     break;
