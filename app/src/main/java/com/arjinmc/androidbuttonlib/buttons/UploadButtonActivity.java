@@ -1,13 +1,14 @@
 package com.arjinmc.androidbuttonlib.buttons;
 
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.arjinmc.androidbuttonlib.R;
 
 /**
- * Created by Eminem Lu on 30/3/17.
+ * Created by Eminem Lo on 30/3/17.
  * Email arjinmc@hotmail.com
  */
 

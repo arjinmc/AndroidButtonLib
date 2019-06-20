@@ -14,19 +14,20 @@ import android.graphics.drawable.ClipDrawable;
 import android.graphics.drawable.ColorDrawable;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.Gravity;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
 /**
  * a download button style designed by Gleb Stroganov
  * link:https://dribbble.com/shots/2551579-Download-Button
  * <p>
- * Created by Eminem Lu on 22/3/17.
+ * Created by Eminem Lo on 22/3/17.
  * Email arjinmc@hotmail.com
  */
 
@@ -49,7 +50,7 @@ public class DownloadButton extends View {
     private RectF mOvalRect;
     private int mWidth, mHeight;
 
-    private ClipDrawable mProgessDrawable;
+    private ClipDrawable mProgressDrawable;
     private Path mLeftPath;
     private Path mRightPath;
     private PathMeasure mRightPathMeasure;
@@ -157,8 +158,9 @@ public class DownloadButton extends View {
             mTxtHeight = mHeight - (mHeight - fontHeight) / 2 - fontMetrics.bottom;
         }
 
-        if (mOvalRect == null)
+        if (mOvalRect == null) {
             mOvalRect = new RectF(0, 0, mWidth, mHeight);
+        }
 
         switch (mStatus) {
             case STATUS_NORMAL:
@@ -180,17 +182,17 @@ public class DownloadButton extends View {
                 canvas.drawRoundRect(mOvalRect, mRadius, mRadius, mBgPaint);
 
                 //draw progress
-                if (mProgessDrawable == null) {
+                if (mProgressDrawable == null) {
                     GradientDrawable progressGradientDrawable = new GradientDrawable();
                     progressGradientDrawable.setBounds(0, 0, mWidth, mHeight);
                     progressGradientDrawable.setColor(mProgressColor);
                     progressGradientDrawable.setCornerRadius(mRadius);
-                    mProgessDrawable = new ClipDrawable(
+                    mProgressDrawable = new ClipDrawable(
                             progressGradientDrawable, Gravity.LEFT, ClipDrawable.HORIZONTAL);
-                    mProgessDrawable.setBounds(0, 0, mWidth, mHeight);
+                    mProgressDrawable.setBounds(0, 0, mWidth, mHeight);
                 }
-                mProgessDrawable.setLevel(mProgress * 100);
-                mProgessDrawable.draw(canvas);
+                mProgressDrawable.setLevel(mProgress * 100);
+                mProgressDrawable.draw(canvas);
 
                 //draw text
                 mTxtPaint.setTextSize(mTxtSize);
@@ -200,6 +202,8 @@ public class DownloadButton extends View {
                 drawTick(canvas);
                 startAnimation();
 //                mCanClick = true;
+                break;
+            default:
                 break;
         }
 
@@ -263,8 +267,9 @@ public class DownloadButton extends View {
                 @Override
                 public void onAnimationEnd(Animator animation) {
                     mIsDone = true;
-                    if (mOnDownloadListener != null)
+                    if (mOnDownloadListener != null) {
                         mOnDownloadListener.onDone();
+                    }
                 }
 
                 @Override
@@ -297,9 +302,12 @@ public class DownloadButton extends View {
                 case MotionEvent.ACTION_UP:
                     mStatus = STATUS_PROGRESS;
                     postInvalidate();
-                    if (mOnDownloadListener != null)
+                    if (mOnDownloadListener != null) {
                         mOnDownloadListener.onReady();
+                    }
                     mCanClick = false;
+                    break;
+                default:
                     break;
             }
         }

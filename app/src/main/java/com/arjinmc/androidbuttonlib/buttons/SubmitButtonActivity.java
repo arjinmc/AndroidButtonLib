@@ -2,16 +2,17 @@ package com.arjinmc.androidbuttonlib.buttons;
 
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.support.annotation.Nullable;
-import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 import com.arjinmc.androidbuttonlib.R;
 import com.arjinmc.buttonlib.SubmitButton;
 
 /**
- * Created by Eminem Lu on 27/3/17.
+ * Created by Eminem Lo on 27/3/17.
  * Email arjinmc@hotmail.com
  */
 

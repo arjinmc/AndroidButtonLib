@@ -2,14 +2,15 @@ package com.arjinmc.buttonlib;
 
 import android.content.Context;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
 /**
  * UploadButton designed by Colin Garven
- * Created by Eminem Lu on 30/3/17.
+ * Created by Eminem Lo on 30/3/17.
  * Email arjinmc@hotmail.com
  */
 

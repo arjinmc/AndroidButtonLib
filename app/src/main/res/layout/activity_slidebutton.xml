@@ -1,18 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
-
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <com.arjinmc.buttonlib.SlideButton
         android:id="@+id/slideButton"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="40dp"
         android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="#000000"
+        app:SlideButton.backgroundRadius="5dp"
         app:SlideButton.button="@drawable/btn_silver_slide"
+        app:SlideButton.shaderBackgroundColor="#000000"
+        app:SlideButton.shaderColor="#ffffff"
+        app:SlideButton.shaderRadius="90"
+        app:SlideButton.shaderVisible="true"
+        app:SlideButton.text="@string/slidebutton_tips"
         app:SlideButton.tipsColor="#ff0"
         app:SlideButton.tipsTextSize="16sp" />
 
-</RelativeLayout>
+    <com.arjinmc.buttonlib.SlideButton
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="20dp"
+        android:background="@drawable/bg_slide"
+        app:SlideButton.backgroundRadius="5dp"
+        app:SlideButton.button="@drawable/btn_slide"
+        app:SlideButton.checkedColor="#0000ff"
+        app:SlideButton.shaderBackgroundColor="#ff0000"
+        app:SlideButton.text="@string/slidebutton_tips"
+        app:SlideButton.tipsColor="#ff0"
+        app:SlideButton.tipsTextSize="16sp" />
+
+</LinearLayout>

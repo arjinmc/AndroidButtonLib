@@ -13,16 +13,17 @@ import android.graphics.PathMeasure;
 import android.graphics.RectF;
 import android.graphics.drawable.GradientDrawable;
 import android.os.Build;
-import android.support.annotation.Nullable;
-import android.support.annotation.RequiresApi;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
 
+import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
+
 /**
  * a sumbit button designed by Colin Garven
  * link:http://dribbble.com/shots/1426764-Submit-Button
- * Created by Eminem Lu on 24/3/17.
+ * Created by Eminem Lo on 24/3/17.
  * Email arjinmc@hotmail.com
  */
 
@@ -287,7 +288,7 @@ public class SubmitButton extends View {
                 mRightPathMeasure.getSegment(0, rightStopCross, rightDstCross, true);
                 canvas.drawPath(rightDstCross, mSignalPaint);
 
-                //some devices do not support pathmeasure
+                //some devices do not support path measure
                 if (mIsSignal) {
                     canvas.drawPath(mLeftPath, mSignalPaint);
                     canvas.drawPath(mRightPath, mSignalPaint);
@@ -304,13 +305,16 @@ public class SubmitButton extends View {
     }
 
     /**
-     * draw sigal background for done or error
+     * draw signal background for done or error
      *
      * @param canvas
+     * @param isError
      */
     private void drawSignalBackground(Canvas canvas, boolean isError) {
         int dstColor = mThemeColor;
-        if (isError) dstColor = mErrorColor;
+        if (isError) {
+            dstColor = mErrorColor;
+        }
         int changeXDone = (int) (mChangeTotalWidth - mChangeTotalWidth
                 * ((float) (dstColor - mBackgroundColorAnimationValue) / dstColor));
         mBackgroundDrawable.setShape(GradientDrawable.RECTANGLE);
@@ -436,8 +440,12 @@ public class SubmitButton extends View {
     }
 
     public void setProgress(int progress) {
-        if (progress < 0) progress = 0;
-        if (progress > 100) progress = 100;
+        if (progress < 0) {
+            progress = 0;
+        }
+        if (progress > 100) {
+            progress = 100;
+        }
         mProgress = progress;
         if (progress == 100) {
             setDoneStatus();
@@ -483,7 +491,7 @@ public class SubmitButton extends View {
 
 
     /**
-     * press release status animtaions
+     * press release status animations
      */
     private void startPressReleaseStatusAnimation() {
 
@@ -551,7 +559,9 @@ public class SubmitButton extends View {
      */
     private void startSignalAnimation(boolean isError) {
         int dstColor = mThemeColor;
-        if (isError) dstColor = mErrorColor;
+        if (isError) {
+            dstColor = mErrorColor;
+        }
         mBackgroundAnimation = createColorAnimation(mBackgroundColor, dstColor);
         mBackgroundAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
             @Override
@@ -614,7 +624,9 @@ public class SubmitButton extends View {
     private void startResetAnimation(boolean isError) {
 
         int dstColor = mThemeColor;
-        if (isError) dstColor = mErrorColor;
+        if (isError) {
+            dstColor = mErrorColor;
+        }
         mBackgroundAnimation = createColorAnimation(dstColor, mBackgroundColor);
 
         mBackgroundAnimation.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
@@ -637,7 +649,9 @@ public class SubmitButton extends View {
                 mCanClick = true;
                 mStatus = STATUS_NORMAL;
                 mLastSignalStatus = -1;
-                if (mOnSubmitListener != null) mOnSubmitListener.onSignalFinsh();
+                if (mOnSubmitListener != null) {
+                    mOnSubmitListener.onSignalFinsh();
+                }
             }
 
             @Override

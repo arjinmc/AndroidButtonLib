@@ -4,6 +4,13 @@
         <attr name="SlideButton.tipsColor" format="color" />
         <attr name="SlideButton.tipsTextSize" format="dimension" />
         <attr name="SlideButton.button" format="reference" />
+        <attr name="SlideButton.text" format="string" />
+        <attr name="SlideButton.shaderVisible" format="boolean" />
+        <attr name="SlideButton.shaderColor" format="color" />
+        <attr name="SlideButton.shaderRadius" format="float" />
+        <attr name="SlideButton.shaderBackgroundColor" format="color" />
+        <attr name="SlideButton.checkedColor" format="color" />
+        <attr name="SlideButton.backgroundRadius" format="dimension" />
     </declare-styleable>
 
     <declare-styleable name="DownloadButton">
