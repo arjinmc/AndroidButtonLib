@@ -309,7 +309,7 @@ public class DownloadButton extends View {
 
     public void setProgress(int progress) {
         if (mProgress < 0) {
-            new Exception("mProgress cannot samller than 0").printStackTrace();
+            new Exception("Progress cannot smaller than 0").printStackTrace();
         } else {
             this.mProgress = progress;
             if (mProgress >= 100) {

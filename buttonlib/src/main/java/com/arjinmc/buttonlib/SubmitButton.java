@@ -21,6 +21,7 @@ import android.view.View;
 
 /**
  * a sumbit button designed by Colin Garven
+ * link:http://dribbble.com/shots/1426764-Submit-Button
  * Created by Eminem Lu on 24/3/17.
  * Email arjinmc@hotmail.com
  */
