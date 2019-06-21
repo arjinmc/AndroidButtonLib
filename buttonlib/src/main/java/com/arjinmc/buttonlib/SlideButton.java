@@ -408,6 +408,24 @@ public class SlideButton extends RelativeLayout {
         }
     }
 
+    /**
+     * set checked status
+     *
+     * @param isChecked
+     */
+    public void setChecked(boolean isChecked) {
+        if (isChecked) {
+            mProgress = 100;
+            mTotalMove = mWidth - mButton.getWidth();
+            mButton.setTranslationX(mTotalMove);
+        } else {
+            mProgress = 0;
+            mTotalMove = 0;
+            mButton.setTranslationX(mTotalMove);
+        }
+        postInvalidate();
+    }
+
     public boolean getStatus() {
         return mSlideStatus;
     }
